@@ -4,7 +4,7 @@
 // Retorne true se a imagem estiver no modo 
 // paisagem.
 
-const ePaisagem = (largura, altura) => true ? largura > altura : false
+const ePaisagem = (largura, altura) => largura > altura
 
 console.log(ePaisagem(1980, 1080))
 

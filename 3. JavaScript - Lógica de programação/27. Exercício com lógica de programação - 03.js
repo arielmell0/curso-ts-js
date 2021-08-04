@@ -8,17 +8,15 @@
 // Use a função com números de 0 a 100
 
 function fizzBuzz(num) {
-    if(isNaN(num)){
-        return num
-    } else if (num % 3 === 0 && num % 5 === 0) {
-        return 'FizzBuzz'
-    } else if (num % 3 !== 0 && num % 5 !== 0) {
-        return num
-    } else if (num % 5 === 0) {
-        return 'Buzz'
-    } else if (num % 3 === 0) {
-        return 'Fizz'
-    } 
+    if(typeof num !== 'number') return num
+    if(num % 3 === 0 && num % 5 === 0) return 'FizzBuzz'
+    if(num % 3 === 0) return 'Fizz'
+    if(num % 5 === 0) return 'Buzz'
+    else return num
 }
 
-console.log(fizzBuzz('5'))
+console.log('oi')
+
+for(let i = 0; i <= 100; i++) {
+    console.log(fizzBuzz(i))
+}

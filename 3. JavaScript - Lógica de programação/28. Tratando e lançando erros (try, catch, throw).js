@@ -3,7 +3,7 @@ function soma(x, y){
         typeof x !== 'number' ||
         typeof y !== 'number'
     ) {
-        throw('x e y precisam ser números.')
+        throw new Error('x e y precisam ser números.')
     }
 
     return x + y
@@ -12,5 +12,5 @@ function soma(x, y){
 try {
     console.log(soma('1', 2))
 } catch(error) {
-    console.log(error)
+    console.log('Alguma coisa mais amigavel pro usuário')
 }

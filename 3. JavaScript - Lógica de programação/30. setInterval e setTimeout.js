@@ -8,11 +8,8 @@ function retornaHora() {
     })
 }
 
-//Essa função somente serve para mostrar o valor da outra função na tela
-function funcaoDoIntervalo() {
-    console.log(retornaHora())
-}
-
 // Primeiro parâmetro é uma referência a função (sem as aspas para não executar) e o 
 // segundo parâmetro é o tempo em milisegundos.
-setInterval(funcaoDoIntervalo, 1000)
+setInterval(function () {
+    console.log(retornaHora())
+}, 1000)

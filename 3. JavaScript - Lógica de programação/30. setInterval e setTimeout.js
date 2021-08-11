@@ -10,6 +10,12 @@ function retornaHora() {
 
 // Primeiro parâmetro é uma referência a função (sem as aspas para não executar) e o 
 // segundo parâmetro é o tempo em milisegundos.
-setInterval(function () {
+const timer = setInterval(function () {
     console.log(retornaHora())
 }, 1000)
+
+// Executa somente uma vez aquilo que é passado no primeiro parâmetro
+// No segundo parâmetro é daqui a quanto tempo isso vai ser executado
+setTimeout(function () {
+    clearInterval(timer)
+}, 6000)

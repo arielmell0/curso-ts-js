@@ -57,7 +57,7 @@ form button:hover {
   background: var(--primary-color-darker);
 }
 
-#clock {
+.clock {
   font-size: 3em;
 }
 

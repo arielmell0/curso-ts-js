@@ -1,7 +1,7 @@
-const relogio = document.querySelector('#clock')
-const iniciar = document.querySelector('#start')
-const pausar = document.querySelector('#pause')
-const zerar = document.querySelector('#reset')
+const relogio = document.querySelector('.clock')
+const iniciar = document.querySelector('.start')
+const pausar = document.querySelector('.pause')
+const zerar = document.querySelector('.reset')
 
 let seconds = 0
 let clockState
@@ -15,27 +15,27 @@ function clock(seconds) {
     })
 }
 
-iniciar.addEventListener('click', function (event) {
-    relogio.classList.remove('paused')
+document.addEventListener('click', function (event) {
+    const clickTarget = event.target
 
-    clockState = setInterval(function () {
-        seconds++
-        relogio.innerHTML = clock(seconds) 
-    }, 1000)
-})
+    if(clickTarget.classList.contains('start')) {
+        relogio.classList.remove('paused')
 
-pausar.addEventListener('click', function (event) {
-    relogio.classList.add('paused')
+        clockState = setInterval(function () {
+            seconds++
+            relogio.innerHTML = clock(seconds) 
+        }, 1000)
+    }else if(clickTarget.classList.contains('pause')) {
+        relogio.classList.add('paused')
     
-    setTimeout(function () {
+        setTimeout(function () {
+            clearInterval(clockState)
+        }, 0)
+    }else if(clickTarget.classList.contains('reset')) {
+        relogio.classList.remove('paused')
+
+        seconds = 0
+        relogio.innerHTML = clock(seconds)
         clearInterval(clockState)
-    }, 0)
-})
-
-zerar.addEventListener('click', function(event) {
-    relogio.classList.remove('paused')
-
-    seconds = 0
-    relogio.innerHTML = clock(seconds)
-    clearInterval(clocks)
+    }
 })

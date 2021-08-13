@@ -3,7 +3,7 @@ const iniciar = document.querySelector('#start')
 const pausar = document.querySelector('#pause')
 const zerar = document.querySelector('#reset')
 
-let seconds = 0;
+let seconds = 0
 let clockState
 
 function clock(seconds) {
@@ -15,11 +15,9 @@ function clock(seconds) {
     })
 }
 
-relogio.addEventListener('click', function (event) {
-    
-})
-
 iniciar.addEventListener('click', function (event) {
+    relogio.classList.remove('paused')
+
     clockState = setInterval(function () {
         seconds++
         relogio.innerHTML = clock(seconds) 
@@ -27,12 +25,17 @@ iniciar.addEventListener('click', function (event) {
 })
 
 pausar.addEventListener('click', function (event) {
+    relogio.classList.add('paused')
+    
     setTimeout(function () {
         clearInterval(clockState)
     }, 0)
 })
 
 zerar.addEventListener('click', function(event) {
+    relogio.classList.remove('paused')
+
     seconds = 0
     relogio.innerHTML = clock(seconds)
+    clearInterval(clocks)
 })

@@ -46,6 +46,15 @@ function createTask(input) {
     saveTasks()
 }
 
+function addSavedTasks() {
+    const tasks = localStorage.getItem('tasks')
+    const listTasks = JSON.parse(tasks)
+
+    for(let task of listTasks) {
+        createTask(task)
+    }
+}
+
 btnTask.addEventListener('click', function(event) {
     if(!inputTask.value) return 
 
@@ -60,3 +69,5 @@ document.addEventListener('click', (event) => {
         saveTasks()
     }
 })
+
+addSavedTasks()

@@ -12,6 +12,15 @@ function cleanInput() {
     inputTask.focus()
 }
 
+function createDeleteBtn(li) {
+    const deleteBtn = document.createElement('button')
+
+    li.innerText += ' '
+    deleteBtn.innerText = 'Apagar'
+    deleteBtn.setAttribute('class', 'delete-btn')
+    li.appendChild(deleteBtn)
+}
+
 function createTask(input) {
     const li = createLi()
 
@@ -19,10 +28,19 @@ function createTask(input) {
     tasks.appendChild(li)
     
     cleanInput()
+    createDeleteBtn(li)
 }
 
 btnTask.addEventListener('click', function(event) {
     if(!inputTask.value) return 
 
     createTask(inputTask.value)
+})
+
+document.addEventListener('click', (event) => {
+    const clickedElement = event.target
+
+    if(clickedElement.classList.contains('delete-btn')) {
+        clickedElement.parentElement.remove()
+    }
 })

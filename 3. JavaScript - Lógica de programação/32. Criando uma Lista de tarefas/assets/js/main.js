@@ -21,6 +21,20 @@ function createDeleteBtn(li) {
     li.appendChild(deleteBtn)
 }
 
+function saveTasks() {
+    const liTasks = tasks.querySelectorAll('li')
+    const listTasks = []
+
+    for(let task of liTasks) {
+        let taskText = task.innerText
+        taskText = taskText.replace('Apagar', '').trim()
+        listTasks.push(taskText)
+    }
+
+    const jsonListTasks = JSON.stringify(listTasks)
+    localStorage.setItem('tasks', jsonListTasks)
+}
+
 function createTask(input) {
     const li = createLi()
 
@@ -29,6 +43,7 @@ function createTask(input) {
     
     cleanInput()
     createDeleteBtn(li)
+    saveTasks()
 }
 
 btnTask.addEventListener('click', function(event) {
@@ -42,5 +57,6 @@ document.addEventListener('click', (event) => {
 
     if(clickedElement.classList.contains('delete-btn')) {
         clickedElement.parentElement.remove()
+        saveTasks()
     }
 })

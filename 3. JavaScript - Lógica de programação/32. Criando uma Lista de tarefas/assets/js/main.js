@@ -7,11 +7,18 @@ function createLi() {
     return li
 }
 
+function cleanInput() {
+    inputTask.value = ''
+    inputTask.focus()
+}
+
 function createTask(input) {
     const li = createLi()
 
     li.innerText = input
     tasks.appendChild(li)
+    
+    cleanInput()
 }
 
 btnTask.addEventListener('click', function(event) {

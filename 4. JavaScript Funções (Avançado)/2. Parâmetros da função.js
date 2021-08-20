@@ -1,6 +1,11 @@
+// arguments -> sustenta todos os argumentos enviados
 function funcao() {
-    console.log('Oie')
+    let total = 0
+
+    for(let argumento of arguments) {
+        total += argumento
+    }
 }
 
-// js ignora argumentos que não existem, executando o código sem erros
-funcao('Valor')
+// os argumentos não precisam estar setados como parametros 
+funcao(1, 2, 3, 4, 5)

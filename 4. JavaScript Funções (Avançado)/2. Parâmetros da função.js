@@ -1,11 +1,7 @@
-// arguments -> sustenta todos os argumentos enviados
-function funcao() {
-    let total = 0
-
-    for(let argumento of arguments) {
-        total += argumento
-    }
+// b e c possuem 2 e 4 como valores padroes caso n recebam argumentos
+function funcao(a, b = 2, c = 4) {
+    console.log(a + b + c)
 }
 
-// os argumentos não precisam estar setados como parametros 
-funcao(1, 2, 3, 4, 5)
+// única maneira de que b seja o valor padrão é enviar undefined
+funcao(2, undefined, 20)

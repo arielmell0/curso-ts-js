@@ -1,13 +1,7 @@
-// rest operador ...numeros -> o restante dos numeros
-function conta(operador, acumulador, ...numeros) {
-    for(let numero of numeros) {
-        if(operador === '+') acumulador += numero
-        if(operador === '-') acumulador -= numero
-        if(operador === '*') acumulador *= numero
-        if(operador === '/') acumulador /= numero
-    }
-
-    console.log(acumulador)
+// Como o arguments não funcionam em arrow e funcoes anonimas use o 
+// rest operator no parametro quando precisar obter varios numeros
+const conta = (...args) => {
+    console.log(args)
 }
 
-conta('+', 0, 20, 50, 15)
+conta('+', 1, 2, 10, 32)

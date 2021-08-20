@@ -1,7 +1,13 @@
-// b e c possuem 2 e 4 como valores padroes caso n recebam argumentos
-function funcao(a, b = 2, c = 4) {
-    console.log(a + b + c)
+// rest operador ...numeros -> o restante dos numeros
+function conta(operador, acumulador, ...numeros) {
+    for(let numero of numeros) {
+        if(operador === '+') acumulador += numero
+        if(operador === '-') acumulador -= numero
+        if(operador === '*') acumulador *= numero
+        if(operador === '/') acumulador /= numero
+    }
+
+    console.log(acumulador)
 }
 
-// única maneira de que b seja o valor padrão é enviar undefined
-funcao(2, undefined, 20)
+conta('+', 0, 20, 50, 15)

@@ -1,14 +1,14 @@
 const name = 'Ariel'
 
 function sayName() {
-    const name = 'Mello'
+    // função criada aqui então chama a variável name de seu pai
     console.log(name)
 }
 
 function useSayName() {
+    // A função lembra aonde foi criada
+    const name = 'Mello'
     sayName()
 }
 
-// Retorna Mello pois primeiro a função usa as váriaveis dentro do seu escopo
-// e somente depois busca no escopo do seu pai, ou pai do seu pai
 useSayName()

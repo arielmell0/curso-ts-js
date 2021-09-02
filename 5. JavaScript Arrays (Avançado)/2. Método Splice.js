@@ -3,11 +3,9 @@
 const names = ['Maria', 'João', 'Eduardo', 'Gabriel']
 
 // names.splice(índice, delete, elemen1, elemen2, elemen3)
-// pop
 
-// Começa do -2 ou seja 0 -2 elementos do fim do array
-// Number.MAX_VALUE representa o maior número do javascript
-const removeds = names.splice(-2, Number.MAX_VALUE) 
-console.log(names, removeds)
+// push com splice()
+names.splice(names.length, 0, 'Ariel', 'Adriana')
+console.log(names)
 
-// output -> [ 'Maria', 'João' ] [ 'Eduardo', 'Gabriel' ]
+// output -> [ 'Maria', 'João', 'Eduardo', 'Gabriel', 'Ariel' ]

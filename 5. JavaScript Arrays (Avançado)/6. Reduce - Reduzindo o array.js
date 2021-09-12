@@ -5,6 +5,8 @@ const total = numbers.reduce((accumulator, value, index, array) => {
     // retorna 0 e dps undefined
     //accumulator deve ser usado juntamente com um laço for 
     console.log(accumulator)
+    // vai retornar só 0 nesse caso
+    return accumulator
 }, 0)
 
 console.log(total)

@@ -6,6 +6,12 @@ const CriaProduto = function(nome, preco, estoque) {
         enumerable:true,  // mostra a chave (mostra o valor no for)
         // value: estoque, // usaremos getters e setters então eles vão fornecer os valores
         // writable: true, // retiramos o writable por que teremos métodos para trabalhar o nosso valor (setter)
+        set: function(estoque) {
+            if(typeof estoque !== 'number'){
+                console.log('Erro: somente números são aceitos.')
+                return 
+            }
+        },     
         get: function() {
             return estoque
         },
@@ -17,6 +23,7 @@ const CriaProduto = function(nome, preco, estoque) {
 }
 
 const camiseta = new CriaProduto('Camiseta', 24.99, 20) // usar new em funções construtoras também
-console.log(camiseta)
+camiseta.estoque = 'olá' //setter
 
-// output -> CriaProduto { nome: 'Camiseta', preco: 24.99, estoque: [Getter] }
+
+// output -> Erro: somente números são aceitos.

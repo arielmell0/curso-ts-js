@@ -26,3 +26,19 @@ console.log(copia)
 // output -> { nome: 'Caneca', preco: 2.5 }
 
 // copia é independente de produto
+
+// cópia com assign
+
+const produto3 = {nome: 'Boneco', preco: 29.99}
+const copia3 = Object.assign({}, produto3, {material: 'Plástico'}) 
+// params. target -> objeto vazio, source -> alvo da cópia
+// 3° param -> adicionais ao objeto que n existem no objeto original
+
+produto3.nome = 'Boneco do Super-Man'
+
+console.log(produto3)
+console.log(copia3)
+
+// output ->
+// { nome: 'Boneco do Super-Man', preco: 29.99 }
+// { nome: 'Boneco', preco: 29.99 }

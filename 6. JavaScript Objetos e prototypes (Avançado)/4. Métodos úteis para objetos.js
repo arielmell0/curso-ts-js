@@ -73,3 +73,9 @@ console.log(Object.getOwnPropertyDescriptors(produto4))
 console.log(Object.values(produto4)) // retorna somente os valores ignorando as chaves
 // Output ->
 // [ 'Paçoquinha', 0.25 ]
+
+// Object.keys()
+console.log(Object.keys(produto4)) // retorna somente as chaves ignorando os valores
+// Output ->
+// [ 'nome', 'preco' ]
+

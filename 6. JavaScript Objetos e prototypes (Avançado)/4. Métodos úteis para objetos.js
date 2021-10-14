@@ -68,3 +68,8 @@ console.log(Object.getOwnPropertyDescriptors(produto4))
 //       configurable: false 
 //     } 
 // }
+
+// Object.values()
+console.log(Object.values(produto4)) // retorna somente os valores ignorando as chaves
+// Output ->
+// [ 'Paçoquinha', 0.25 ]

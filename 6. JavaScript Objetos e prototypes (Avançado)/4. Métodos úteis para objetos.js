@@ -79,3 +79,7 @@ console.log(Object.keys(produto4)) // retorna somente as chaves ignorando os val
 // Output ->
 // [ 'nome', 'preco' ]
 
+// Object.entries()
+console.log(Object.entries(produto4)) // retorna valor e chave dentro de um array
+// output -> 
+// [ [ 'nome', 'Paçoquinha' ], [ 'preco', 0.25 ] ]

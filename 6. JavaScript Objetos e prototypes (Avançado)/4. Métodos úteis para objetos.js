@@ -42,3 +42,12 @@ console.log(copia3)
 // output ->
 // { nome: 'Boneco do Super-Man', preco: 29.99 }
 // { nome: 'Boneco', preco: 29.99 }
+
+// Object.freeze()
+const produto4 = {nome: 'Paçoquinha', preco: 0.25}
+Object.freeze(produto4)
+produto4.preco = 0.50
+console.log(produto4.preco)
+// output -> 
+// 0.25
+// o objeto não foi alterado após o freeze

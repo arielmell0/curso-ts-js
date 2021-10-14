@@ -51,3 +51,20 @@ console.log(produto4.preco)
 // output -> 
 // 0.25
 // o objeto não foi alterado após o freeze
+
+// Object.getOwnPropertyDescriptor() retorna as configurações da sua propriedade
+console.log(Object.getOwnPropertyDescriptors(produto4))
+// output -> 
+// { nome:
+//     { value: 'Paçoquinha',
+//       writable: false,
+//       enumerable: true,
+//       configurable: false 
+//     },
+//    preco:
+//     { value: 0.25,
+//       writable: false,
+//       enumerable: true,
+//       configurable: false 
+//     } 
+// }

@@ -26,7 +26,25 @@ produto2.desconto(30)
 // Repare que agora o produto2 possui o método aumento e desconto
 console.log(produto2)
 
-const produto3 = Object.create(Produto.prototype)
-produto3.preco = 430
-produto3.desconto(10)
+const produto3 = Object.create(Produto.prototype, {
+    preco: {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: 789
+    },
+    tamanho: {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: 42
+    }
+})
+produto3.aumento(10)
 console.log(produto3)
+
+// output ->
+ 
+// Produto { nome: 'Camiseta', preco: 40 }
+// Produto { nome: 'Tênis', preco: 84 }
+// Produto { preco: 867.9, tamanho: 42 }

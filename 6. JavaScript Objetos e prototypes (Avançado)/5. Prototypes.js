@@ -1,27 +1,21 @@
-function Produto(nome, preco) {
-    this.nome = nome
-    this.preco = preco
+// new Object -> Object.prototype
+const objA = {
+    chaveA: 'A'
+    // __proto__: Object.prototype
 }
 
-Produto.prototype.desconto = function(percentual) {
-    this.preco = this.preco - (this.preco * (percentual/100))
+const objB = {
+    chaveA: 'B'
+    // __proto__: Object.prototype
 }
 
-Produto.prototype.aumento = function(percentual) {
-    this.preco = this.preco + (this.preco * (percentual/100))
-}
+const objC = new Object()
+objC.chaveC = 'C'
 
-const produto1 = new Produto('Camiseta', 50)
-produto1.desconto(20)
-console.log(produto1)
+// aninhando os prototypes para facilitar o entendimento
+Object.setPrototypeOf(objB, objA)
+Object.setPrototypeOf(objC, objB)
+console.log(objC.chaveA)
 
-// Objeto literal
-// Repare que não possui os métodos aumento e desconto
-const produto2 = {
-    nome: 'Tênis',
-    preco: 120
-}
-Object.setPrototypeOf(produto2, Produto.prototype)
-produto2.desconto(30)
-// Repare que agora o produto2 possui o método aumento e desconto
-console.log(produto2)
+// não é correto alterar o prototype de um objeto, pode afetar
+// a performance do código!!

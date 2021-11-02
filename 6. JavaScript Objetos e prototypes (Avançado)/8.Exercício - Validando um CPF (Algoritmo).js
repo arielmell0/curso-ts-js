@@ -23,11 +23,58 @@ const limpaCpf = function(cpf) {
 const stringToArray = function(limpaCpf) {
     return (Array.from(limpaCpf)) //transforma a string em array 
 }
-
-console.log(stringToArray(limpaCpf('920.432.123-44')))
 // output ->
 // [ '9', '2', '0', '4', '3', '2', '1', '2', '3', '4', '4' ]
 
 const validaCpf = function(cpf) {
-    cpf.reduce(nCpf => nCpf*(1))
+    let arrayCpf = stringToArray(limpaCpf(cpf))
+
+    const primeiraSoma = function() {
+        let somaDoArray = 0
+
+        somaDoArray += Number(arrayCpf[0]) * 10
+        somaDoArray += Number(arrayCpf[1]) * 9
+        somaDoArray += Number(arrayCpf[2]) * 8
+        somaDoArray += Number(arrayCpf[3]) * 7
+        somaDoArray += Number(arrayCpf[4]) * 6
+        somaDoArray += Number(arrayCpf[5]) * 5
+        somaDoArray += Number(arrayCpf[6]) * 4
+        somaDoArray += Number(arrayCpf[7]) * 3
+        somaDoArray += Number(arrayCpf[8]) * 2
+        
+        return somaDoArray
+    }
+
+    const segundaSoma = function() {
+        let somaDoArray = 0
+
+        somaDoArray += Number(arrayCpf[0]) * 11
+        somaDoArray += Number(arrayCpf[1]) * 10
+        somaDoArray += Number(arrayCpf[2]) * 9
+        somaDoArray += Number(arrayCpf[3]) * 8
+        somaDoArray += Number(arrayCpf[4]) * 7
+        somaDoArray += Number(arrayCpf[5]) * 6
+        somaDoArray += Number(arrayCpf[6]) * 5
+        somaDoArray += Number(arrayCpf[7]) * 4
+        somaDoArray += Number(arrayCpf[8]) * 3
+        somaDoArray += Number(arrayCpf[9]) * 2
+        
+        return somaDoArray
+    }
+  
+    const validaPrimeiraSoma = 11 - (primeiraSoma() % 11)
+    const validaSegundaSoma = 11 - (segundaSoma() % 11)
+
+
+    if(validaPrimeiraSoma === Number(arrayCpf[9]) && validaSegundaSoma === Number(arrayCpf[10])) {
+        console.log('Cpf é válido!')
+        return true
+    } else {
+        console.log('Cpf inválido')
+        return false
+    }
+    
 }
+
+validaCpf('024.225.820-44')
+

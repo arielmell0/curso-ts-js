@@ -22,3 +22,5 @@ for(let i = 0; i <= 200; i++) {
 }
 
 console.log(carro1)
+// output ->
+// Carro { nome: 'Fusca', velocidade: 100 }

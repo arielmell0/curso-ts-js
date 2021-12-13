@@ -1,12 +1,27 @@
-class Pessoa {
+class Pessoa1 {
     constructor(nome, sobrenome) {
         this.nome = nome
         this.sobrenome = sobrenome
     }
+
+    falar() {
+        console.log(`${this.nome} está falando.`)
+    }
 }
 
-const pessoa = new Pessoa('Ariel', 'Oliveira de Mello')
+function Pessoa2(nome, sobrenome) {
+    this.nome = nome 
+    this.sobrenome = sobrenome
 
-console.log(pessoa)
+    Pessoa2.prototype.falar = function() {
+        console.log(`${this.nome} está falando.`)
+    }
+}
+
+const pessoa1 = new Pessoa1('Ariel', 'Oliveira de Mello')
+const pessoa2 = new Pessoa2('Ariel', 'Oliveira de Mello')
+
+console.log(pessoa1)
+console.log(pessoa2)
 // output -> 
-// Pessoa { nome: 'Ariel', sobrenome: 'Oliveira de Mello' }
+// Observar no browser para melhor entendimento dos prototypes

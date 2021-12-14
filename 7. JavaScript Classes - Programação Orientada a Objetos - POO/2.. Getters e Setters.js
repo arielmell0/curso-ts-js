@@ -1,7 +1,21 @@
+const _velocidade = Symbol('Velocidade')
+
 class Carro {
     constructor(nome) {
         this.nome = nome
-        this.velocidade = 0
+        this[_velocidade] = 0
+    }
+
+    set velocidade(valor) {
+        if(typeof valor !== 'number') return
+        if(valor >= 100 || valor <= 0) return
+        console.log('SETTER')
+        this[_velocidade] = valor
+    } 
+
+    get velocidade() {
+        console.log('GETTER')
+        return this[_velocidade]
     }
 
     acelerar() {
@@ -17,10 +31,9 @@ class Carro {
 
 const carro1 = new Carro('Fusca')
 
-for(let i = 0; i <= 200; i++) {
-    carro1.acelerar()
-}
-
-console.log(carro1)
+carro1.velocidade = 55
+console.log(carro1.velocidade)
 // output ->
-// Carro { nome: 'Fusca', velocidade: 100 }
+// SETTER
+// GETTER
+// 55

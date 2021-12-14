@@ -1,39 +1,24 @@
-const _velocidade = Symbol('Velocidade')
-
-class Carro {
-    constructor(nome) {
+class Pessoa {
+    constructor(nome, sobrenome) {
         this.nome = nome
-        this[_velocidade] = 0
+        this.sobrenome = sobrenome
     }
 
-    set velocidade(valor) {
-        if(typeof valor !== 'number') return
-        if(valor >= 100 || valor <= 0) return
-        console.log('SETTER')
-        this[_velocidade] = valor
-    } 
-
-    get velocidade() {
-        console.log('GETTER')
-        return this[_velocidade]
+    get nomeCompleto() {
+        return this.nome + ' ' + this.sobrenome
     }
 
-    acelerar() {
-        if(this.velocidade >= 100) return
-        this.velocidade++
-    }
-
-    freiar() {
-        if(this.velocidade <= 0) return
-        this.velocidade--
+    set nomeCompleto(valor) {
+        valor = valor.split(' ')
+        this.nome = valor.shift()
+        this.sobrenome = valor.join(' ')
     }
 }
 
-const carro1 = new Carro('Fusca')
-
-carro1.velocidade = 55
-console.log(carro1.velocidade)
+const pessoa1 = new Pessoa('Ariel', 'Oliveira de Mello')
+pessoa1.nomeCompleto = 'Ariel Oliveira'
+console.log(pessoa1.nome)
+console.log(pessoa1.sobrenome)
 // output ->
-// SETTER
-// GETTER
-// 55
+// Ariel
+// Oliveira

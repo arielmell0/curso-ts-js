@@ -20,6 +20,8 @@ class ValidaCPF {
       this.novoCPF = cpfSemDigitos + digito1 + digito2;
     }
   
+    // quando não possui a váriaveis com a palavra this (que referencia a instância da classe)
+    // existe a possibilidade de transformar o método em estático
     static geraDigito(cpfSemDigitos) {
       let total = 0;
       let reverso = cpfSemDigitos.length + 1;

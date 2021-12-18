@@ -8,6 +8,10 @@ class ValidaCpf {
         })
     }
 
+    eSequencia() {
+        return this.cpfLimpo.chatAt(0).repeat(11) === this.cpfLimpo
+    }
+
     valida() {
         if(!this.cpfLimpo) return false
         if(typeof this.cpfLimpo !== 'string') return false

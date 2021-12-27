@@ -12,13 +12,30 @@
 <body>
 
   <section class="container">
-    <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h1>
+    <h1>Formulário de cadastro</h1>
+    <ul>
+      <li>Nenhum campo pode estar vazio</li>
+      <li>Usuário só poderá conter letras e/ou números</li>
+      <li>Usuário deve ter entre 3 e 12 caracteres</li>
+      <li>Senha precisa ter entre 6 e 12 caracteres</li>
+    </ul>
 
-    <div class="paragraph">
-      <p>ipsum dolor, sit amet consectetur adipisicing elit.</p>  
-      <p>quo possimus nemo numquam dolorem adipisci harum iste dolores voluptate.</p> 
-      <p>consectetur ut pariatur a accusantium placeat? Itaque at voluptatibus quae?</p> 
-    </div>
+    <form action="/" method="post" class="formulario">
+      <label for="">Nome:</label>
+      <input type="text" class="nome">
+      <label for="">Sobrenome:</label>
+      <input type="text" class="sobrenome">
+      <label for="">CPF:</label>
+      <input type="text" class="cpf">
+      <label for="">Usuário:</label>
+      <input type="text" class="usuario">
+      <label for="">Senha:</label>
+      <input type="text" class="senha">
+      <label for="">Repetir Senha:</label>
+      <input type="text" class="repetir-senha">
+
+      <button type="submit">Enviar</button>
+    </form>
   </section>
 
   <script src="./assets/js/main.js"></script>

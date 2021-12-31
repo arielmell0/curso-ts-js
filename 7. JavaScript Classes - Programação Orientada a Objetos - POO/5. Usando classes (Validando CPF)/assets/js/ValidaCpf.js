@@ -1,4 +1,4 @@
-class ValidaCpf {
+class ValidaCPF {
     constructor(cpf) {
         Object.defineProperty(this, 'cpfLimpo', {
             enumerable: true,
@@ -8,7 +8,7 @@ class ValidaCpf {
         });
     }
 
-    validaCpf() {
+    validaCPF() {
         if(typeof this.cpfLimpo === 'undefined') return false;
         if(this.cpfLimpo.length !== 11) return false;
         if(this.eSequencia()) return false;

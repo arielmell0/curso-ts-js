@@ -48,7 +48,7 @@ class ValidaFormulario {
         return valid
     }
 
-    senhaSaoValidas() {
+    senhasSaoValidas() {
         let valid = true
 
         const senha = this.formulario.querySelector('.senha')
@@ -67,4 +67,41 @@ class ValidaFormulario {
 
         return valid
     }
+
+    validaUsuario(campo) {
+        const usuario = campo.value
+        let valid = true
+
+        if(usuario.length < 3 || usuario.length > 12) {
+            this.criaErro(campo, 'Usuário precisa ter entre 3 e 12 caracteres.')
+            valid = false
+        }
+
+        if(!usuario.match(/^[a-zA-Z0-9]+$/g)) {
+            this.criaErro(campo, 'Nome de usuário precisa conter apenas letras e/ou números.')
+            valid = false
+        }
+
+        return valid
+    }
+
+    validaCPF(campo) {
+        const cpf = new ValidaCPF(campo.value)
+
+        if(!cpf.validaCPF()) {
+            this.criaErro(campo, 'CPF inválido.')
+            return false
+        }
+
+        return true
+    }
+
+    criaErro(campo, msg) {
+        const div = document.createElement('div')
+        div.innerHTML = msg
+        div.classList.add('error-text')
+        campo.insertAdjacentElement('afterend', div)
+    }
 }
+
+const valida = new ValidaFormulario()

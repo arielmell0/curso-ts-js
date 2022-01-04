@@ -5,18 +5,25 @@ function rand(max, min) {
     return Math.floor(Math.random() * (max - min) + min)
 }
 
-function esperaAi(msg, tempo, callback) {
-    setTimeout(() => {
-        console.log(msg)
-        if(callback) callback()
-    }, tempo)
+function esperaAi(msg, tempo) {
+    return new Promise((resolve, reject) => {
+        if(typeof msg !== 'string') reject('BAD VALUE')
+
+        setTimeout(() => {
+            resolve(msg)
+        }, tempo)
+    })
 }
 
-// Com callback:
-// Pode facilmente virar um callback hell (aninhamento gigante de callbacks)
-// por isso n é a melhor solução
-esperaAi('Frase 1', rand(1, 5), function() {
-    esperaAi('Frase 2', rand(1, 5), function() {
-        esperaAi('Frase 3', rand(1, 5))
+esperaAi('Frase 1', rand(1, 4))
+    .then(resposta => {
+        console.log(resposta)
+        return esperaAi('Frase 2', rand(1, 4))
     })
-})
+    .then(resposta => {
+        console.log(resposta)
+        return esperaAi('Frase 3', rand(1, 4))
+    })
+    .then(resposta => {
+        console.log(resposta)
+    })

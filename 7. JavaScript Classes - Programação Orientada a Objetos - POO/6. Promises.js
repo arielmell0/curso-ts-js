@@ -22,8 +22,11 @@ esperaAi('Frase 1', rand(1, 4))
     })
     .then(resposta => {
         console.log(resposta)
-        return esperaAi('Frase 3', rand(1, 4))
+        return esperaAi(22222, rand(1, 4))
     })
     .then(resposta => {
         console.log(resposta)
+    })
+    .catch(erro => {
+        console.log('Erro ', erro)
     })

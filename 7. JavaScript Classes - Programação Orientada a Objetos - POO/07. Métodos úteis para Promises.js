@@ -41,3 +41,14 @@ Promise.all(promises)
 //   'PROMISE 3 - Passei na promise',
 //   'Outro valor'
 // ]
+
+Promise.race(promises)
+    .then((primeiroValorResolvido) => {
+        console.log(primeiroValorResolvido)
+    })
+    .catch((erro) => {
+        console.log('Oops! Ocorreu um erro \n', erro)
+    })
+
+// Output ->
+// Primeiro valor (retorna esse valor pois já é uma Promise resolvida (sem tempo de espera))

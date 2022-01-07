@@ -54,10 +54,10 @@ Promise.race(promises)
 // Primeiro valor (retorna esse valor pois já é uma Promise resolvida (sem tempo de espera))
 
 function baixaPagina() {
-    const emCache = false
+    const emCache = true
 
     if(emCache) {
-        return Promise.resolve('Página em cache!')
+        return Promise.reject('Página em cache!')
     } else {
         return esperaAi('Baixando a página', rand(1, 3))
     }
@@ -68,7 +68,7 @@ baixaPagina()
         console.log(dadosPagina)
     })
     .catch((erro => {
-        console.log('ERRO', e)
+        console.log('ERRO', erro)
     }))
 
 // Output ->

@@ -33,7 +33,7 @@ Promise.all(promises)
         console.log(erro)
     })
 
-// output ->
+// output -> (se uma der errado rejeita todas)
 // [
 //   'Primeiro valor',
 //   'PROMISE 1 - Passei na promise',
@@ -50,5 +50,26 @@ Promise.race(promises)
         console.log('Oops! Ocorreu um erro \n', erro)
     })
 
-// Output ->
+// Output -> (se a primeira resolvida der erro, retorna o catch)
 // Primeiro valor (retorna esse valor pois já é uma Promise resolvida (sem tempo de espera))
+
+function baixaPagina() {
+    const emCache = false
+
+    if(emCache) {
+        return Promise.resolve('Página em cache!')
+    } else {
+        return esperaAi('Baixando a página', rand(1, 3))
+    }
+}
+
+baixaPagina()
+    .then(dadosPagina => {
+        console.log(dadosPagina)
+    })
+    .catch((erro => {
+        console.log('ERRO', e)
+    }))
+
+// Output ->
+// BAIXANDO A PÁGINA - Passei na promise

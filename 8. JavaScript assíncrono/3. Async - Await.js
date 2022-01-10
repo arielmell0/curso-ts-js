@@ -36,8 +36,12 @@ function esperaAi(msg, tempo) {
 // Frase 2
 // Frase 3
 
-// Maneira menos verbosa com async / await
+// Três estados das promises:
+// Pending -> pendente
+// Fullfilled -> resolvida
+// Rejected -> rejeitada
 
+// Maneira menos verbosa com async / await
 async function executa() {
     try {
         const frase1 = await esperaAi('Frase 1', rand())

@@ -39,15 +39,24 @@ function esperaAi(msg, tempo) {
 // Maneira menos verbosa com async / await
 
 async function executa() {
-    const frase1 = await esperaAi('Frase 1', rand())
-    console.log(frase1)
-    const frase2 = await esperaAi('Frase 2', rand())
-    console.log(frase2)
-    const frase3 = await esperaAi('Frase 3', rand())
-    console.log(frase3)
+    try {
+        const frase1 = await esperaAi('Frase 1', rand())
+        console.log(frase1)
+        const frase2 = await esperaAi('Frase 2', rand())
+        console.log(frase2)
+        // injetando o erro 
+        const frase3 = await esperaAi(2, rand())
+        console.log(frase3)
+    } catch (error) {
+        console.log('Ops, ocorreu um erro: ', error)
+    }
 }
 executa()
 // output ->
 // Frase 1
 // Frase 2
-// Frase 3
+// Ops, ocorreu um erro:  Error
+//     at c:\Users\Ariel\Documents\curso-ts-js\8. JavaScript assíncrono\3. Async - Await.js:10:44
+//     at new Promise (<anonymous>)
+//     at esperaAi (c:\Users\Ariel\Documents\curso-ts-js\8. JavaScript assíncrono\3. Async - Await.js:9:12)
+//     at executa (c:\Users\Ariel\Documents\curso-ts-js\8. JavaScript assíncrono\3. Async - Await.js:48:30)

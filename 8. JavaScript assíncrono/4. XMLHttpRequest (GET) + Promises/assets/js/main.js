@@ -24,20 +24,15 @@ document.addEventListener('click', evento => {
     }
 })
 
-function carregaPagina(element) {
-    const href = element.getAttribute('href')
+async function carregaPagina(element) {
+    const href = element.getAttribute('href') 
     const objConfig = {
         method: 'GET',
         url: href
     }
 
-    request(objConfig)
-    .then(response => {
-        carregaResultado(response)
-    })
-    .catch(error => {
-        console.log(error)
-    })
+    const response = await request(objConfig)
+    carregaResultado(response)
 }
 
 function carregaResultado(response) {

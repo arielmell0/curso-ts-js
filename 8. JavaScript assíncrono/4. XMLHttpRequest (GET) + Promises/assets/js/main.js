@@ -24,17 +24,12 @@ document.addEventListener('click', evento => {
     }
 })
 
-function carregaPagina(element) {
+async function carregaPagina(element) {
     const href = element.getAttribute('href')
-    
-    // fetch api
-    fetch(href)
-    .then(response => {
-        if(response.status !== 200) throw new Error()
-        return response.text()
-    })
-    .then(html => carregaResultado(html))
-    .catch(error => console.error('Erro: ', error))
+    const response = await fetch(href)
+    if(response.status !== 200) throw new Error()
+    const html = await response.text()
+    carregaResultado(html)
 }
 
 function carregaResultado(response) {

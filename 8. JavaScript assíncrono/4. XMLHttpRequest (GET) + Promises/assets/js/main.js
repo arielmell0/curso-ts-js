@@ -25,11 +25,15 @@ document.addEventListener('click', evento => {
 })
 
 async function carregaPagina(element) {
-    const href = element.getAttribute('href')
-    const response = await fetch(href)
-    if(response.status !== 200) throw new Error()
-    const html = await response.text()
-    carregaResultado(html)
+    try {
+        const href = element.getAttribute('href')
+        const response = await fetch(href)
+        if(response.status !== 200) throw new Error()
+        const html = await response.text()
+        carregaResultado(html)
+    } catch(error) {
+        console.error('Erro 404!', error)
+    }
 }
 
 function carregaResultado(response) {

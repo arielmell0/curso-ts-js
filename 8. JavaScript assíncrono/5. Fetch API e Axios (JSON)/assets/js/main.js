@@ -1,11 +1,15 @@
-fetch('pessoas.json')
-    .then(response => {
-        return response.json()
-    })
-    .then(json => {
-        console.log(json)
-        carregaElementoNaPagina(json)
-    })
+// fetch('pessoas.json')
+//     .then(response => {
+//         return response.json()
+//     })
+//     .then(json => {
+//         console.log(json)
+//         carregaElementoNaPagina(json)
+//     })
+
+// Usando axios agora:
+axios('pessoas.json')
+    .then(response => carregaElementoNaPagina(response.data))
 
 function carregaElementoNaPagina(json) {
     const table = document.createElement('tr')

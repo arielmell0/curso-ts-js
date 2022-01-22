@@ -1,4 +1,4 @@
-class ValidaCPF {
+export class ValidaCPF {
     constructor(cpf) {
         Object.defineProperty(this, 'cpfLimpo', {
             enumerable: true,
@@ -40,3 +40,5 @@ class ValidaCPF {
         return sequencia === this.cpfLimpo;
     }
 }
+
+console.log('Cheguei!!')

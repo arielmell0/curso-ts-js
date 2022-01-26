@@ -11,7 +11,25 @@
 <body>
 
   <section class="container">
-    <h1>Lorem ipsum dolor sit amet</h1>
+    <h1>Gerador de senhas:</h1>
+    <div id="senha-gerada"></div>
+
+    <form action="post">
+      <label for="quantidade">Quantidade de caracteres:</label>
+      <input type="number" id='quantidade'>
+
+      <label for="quantidade">Adicionar maiúsculas</label>
+      <input type="checkbox" id='chk-maiusculas' checked>
+
+      <label for="quantidade">Adicionar minúsculas</label>
+      <input type="checkbox" id='chk-minusculas' checked>
+
+      <label for="quantidade">Adicionar números</label>
+      <input type="checkbox" id='chk-numeros' checked>
+
+      <label for="quantidade">Adicionar símbolos</label>
+      <input type="checkbox" id='chk-simbolos' checked>
+    </form>
   </section>
 
   <script src="./assets/js/bundle.js"></script>

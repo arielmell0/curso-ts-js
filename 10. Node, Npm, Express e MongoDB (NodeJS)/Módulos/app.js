@@ -1,6 +1,5 @@
-const mod1 = require('./modulo1')
-const falaNome = mod1.falaNome
+const {nome, sobrenome, nacionalidade} = require('./modulo1')
 
-console.log(falaNome())
+console.log(`${nome} ${sobrenome}, Naturalizado ${nacionalidade}`)
 // Output ->
-// Ariel Oliveira de Mello
+// Ariel Oliveira de Mello, Naturalizado Brasileiro

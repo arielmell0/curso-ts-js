@@ -1,3 +1,5 @@
-const multiplica = require('./modulo1')
+const Cachorro = require('./modulo1')
 
-console.log(multiplica(5, 2))
+// Ucla é o nome do meu cachorro na vida real...
+const Ucla = new Cachorro('Ucla')
+Ucla.latir()

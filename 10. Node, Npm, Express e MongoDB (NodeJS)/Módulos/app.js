@@ -1,6 +1,5 @@
-const mod1 = require('./modulo1')
+const falaNome = require('./modulo1').falaNome
 
-console.log(mod1.falaNome())
-
+console.log(falaNome())
 // Output ->
 // Ariel Oliveira de Mello

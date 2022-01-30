@@ -1,4 +1,5 @@
-const falaNome = require('./modulo1').falaNome
+const mod1 = require('./modulo1')
+const falaNome = mod1.falaNome
 
 console.log(falaNome())
 // Output ->

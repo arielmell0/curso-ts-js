@@ -5,20 +5,26 @@ const falaNome = () => {
     console.log(nome, sobrenome)
 };
 
-module.exports.nome = nome
-module.exports.sobrenome = sobrenome
-module.exports.falaNome = falaNome
+// module.exports.nome = nome
+// module.exports.sobrenome = sobrenome
+// module.exports.falaNome = falaNome
+
+exports.nome = nome
+exports.sobrenome = sobrenome
+exports.falaNome - falaNome // referência
+
+// ou usando somente o this
+this.qualquerCoisa = 'O que eu quiser exportar'
 
 console.log(module)
-
-// output -> 
+// Output ->
 // Module {
 //     id: '.',
 //     path: 'c:\\Users\\Ariel\\Documents\\curso-ts-js\\10. Node, Npm, Express e MongoDB (NodeJS)\\Módulos',
 //     exports: {
 //       nome: 'Ariel',
 //       sobrenome: 'Oliveira de Mello',
-//       falaNome: [Function: falaNome]
+//       qualquerCoisa: 'O que eu quiser exportar'
 //     },
 //     filename: 'c:\\Users\\Ariel\\Documents\\curso-ts-js\\10. Node, Npm, Express e MongoDB (NodeJS)\\Módulos\\Modulo1.js',
 //     loaded: false,

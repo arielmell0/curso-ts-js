@@ -26,4 +26,4 @@ async function walk(files, rootDir) {
     console.log(fileFullPath);
   }
 }
-readdir('/media/luizotavio/Externo/JS/');
+readdir('../');

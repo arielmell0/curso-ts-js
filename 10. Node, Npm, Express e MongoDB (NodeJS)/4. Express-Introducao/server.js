@@ -15,9 +15,9 @@ app.post('/', (req, res) => {
 })
 
 app.get('/contatos', (req, res) => {
-    res.send('Obrigado por entrar em contato com a gente!')
+    res.send('Obrigado por entrar em contato com a genta!')
 })
 
-app.listen(8080, () => {
-    console.log('O servidor está rodando na porta 8080!')
+app.listen(3030, () => {
+    console.log('O servidor está rodando na porta 3030!')
 })

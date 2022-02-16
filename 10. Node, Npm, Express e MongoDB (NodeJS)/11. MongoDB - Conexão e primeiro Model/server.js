@@ -1,10 +1,15 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const routes = require('./routes')
 const mongoose = require('mongoose')
-const connectionString = 'link de conexão com o banco de dados aqui'
-mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(console.log('Banco de dados conectado.'))
+mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('Conectado à base de dados.')
+        app.emit('pronto')
+    })
+    .catch((e) => console.log(e))
 
 const path = require('path')
 const meuMiddlewareGlobal = require('./src/middlewares/middleware')
@@ -20,6 +25,8 @@ app.set('view engine', 'ejs')
 app.use(meuMiddlewareGlobal)
 app.use(routes)
 
-app.listen(3030, () => {
-    console.log('O servidor está rodando na porta 3030!')
+app.on('pronto', () => {
+    app.listen(3030, () => {
+        console.log('O servidor está rodando na porta 3030!')
+    })
 })

@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
 const routes = require('./routes')
+const mongoose = require('mongoose')
+const connectionString = 'link de conexão com o banco de dados aqui'
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(console.log('Banco de dados conectado.'))
+
 const path = require('path')
 const meuMiddlewareGlobal = require('./src/middlewares/middleware')
 

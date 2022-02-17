@@ -8,7 +8,9 @@ HomeModel.create({
     .catch((erro) => console.log(`Ops ocorreu um erro: ${erro}`))
 
 exports.paginaInicial = (req, res) => {
+    req.session.usuario = { nome: 'Ariel', logado: true }
     res.render('index')
+    return
 }
 
 exports.trataPost = (req, res) => {

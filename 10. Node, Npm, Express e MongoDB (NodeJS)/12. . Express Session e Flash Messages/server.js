@@ -2,12 +2,6 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
-mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log('Conectado à base de dados.')
-        app.emit('pronto')
-    })
-    .catch((e) => console.log(e))
 
 const session = require('express-session')
 const mongoStore = require('connect-mongo')
@@ -19,13 +13,20 @@ const path = require('path')
 const meuMiddlewareGlobal = require('./src/middlewares/middleware')
 const MongoStore = require('connect-mongo')
 
+mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('Conectado à base de dados.')
+        app.emit('pronto')
+    })
+    .catch((e) => console.log(e))
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 const sessionOptions = session({
     secret: 'dwadawdpawjdpawjdoawd9219319dwa291',
-    store: new MongoStore({ mongooseConnection: process.env.CONNECTIONSTRING }),
+    store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -33,6 +34,8 @@ const sessionOptions = session({
         httpOnly: true
     }
 })
+app.use(sessionOptions)
+app.use(flash())
 
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')

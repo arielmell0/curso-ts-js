@@ -8,7 +8,8 @@ HomeModel.create({
     .catch((erro) => console.log(`Ops ocorreu um erro: ${erro}`))
 
 exports.paginaInicial = (req, res) => {
-    req.session.usuario = { nome: 'Ariel', logado: true }
+    req.flash('flash1', )
+    console.log(req.flash('flash1'))
     res.render('index')
     return
 }

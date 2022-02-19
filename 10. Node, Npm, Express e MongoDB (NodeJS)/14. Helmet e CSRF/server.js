@@ -20,7 +20,8 @@ mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifi
     })
     .catch((e) => console.log(e))
 
-app.use(helmet())
+// Servidores locais (localhost) ou sem ssl o helmet dá gera erros
+// app.use(helmet())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'public')))
 
@@ -40,11 +41,12 @@ app.use(flash())
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
-app.use(csrf())
+// cros site request forgery desativada no ambiente local (sem ssl)
+// app.use(csrf())
 // Nossos proprios middlewares
 app.use(meuMiddlewareGlobal)
-app.use(checkCsrfError)
-app.use(csrfMiddleware)
+// app.use(checkCsrfError)
+// app.use(csrfMiddleware)
 app.use(routes)
 
 app.on('pronto', () => {

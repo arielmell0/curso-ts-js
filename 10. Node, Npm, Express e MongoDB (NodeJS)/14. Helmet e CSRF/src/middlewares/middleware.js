@@ -4,7 +4,7 @@ exports.meuMiddlewareGlobal = (req, res, next) => {
 }
 
 exports.checkCsrfError = () => (err, req, res, next) => {
-    if(err && err.code == 'EBADCSRFTOKEN') {
+    if(err && 'EBADCSRFTOKEN' === err.code) {
         return res.render('404')
     }
 }

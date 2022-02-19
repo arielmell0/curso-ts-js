@@ -1,7 +1,6 @@
 const HomeModel = require('../models/HomeModel')
 
 HomeModel.find()
-    .then((dados) => console.log(dados))
     .catch((erro) => console.log(`Ops ocorreu um erro: ${erro}`))
 
 exports.paginaInicial = (req, res) => {
